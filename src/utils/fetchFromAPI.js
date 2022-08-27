@@ -1,19 +1,18 @@
-import Axios from 'axios'
+import axios from 'axios';
 
-const Base_Url = 'https://youtube-v31.p.rapidapi.com/'
+export const BASE_URL = 'https://youtube-v31.p.rapidapi.com';
 
 const options = {
-    params: {
-      maxResults: '50'
-    },
-    headers: {
-      'X-RapidAPI-Key': process.env.REACT_APP_TECHTUBE_API_KEY,
-      'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com'
-    }
-}
+  params: {
+    maxResults: 50,
+  },
+  headers: {
+    'X-RapidAPI-Key': process.env.REACT_APP_TECHTUBE_API_KEY,
+    'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com',
+  },
+};
 
 export const fetchFromAPI = async (url) => {
-        const { data } = await Axios.get(`${Base_Url}/${url}`, options)
-        return data
-     
-}
+  const { data } = await axios.get(`${BASE_URL}/${url}`, options);
+  return data;
+};
